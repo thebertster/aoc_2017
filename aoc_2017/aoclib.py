@@ -11,10 +11,10 @@ class AOCLib:
         with open(user_profile + '\\aoc.cookie', 'r') as aoc_cookie_file:
             aoc_cookie_value = aoc_cookie_file.read()
 
-        self._aoc_cookie = {'session':aoc_cookie_value}
+        self._aoc_cookie = dict(session=aoc_cookie_value)
 
     def get_puzzle_input(self, day):
         response = requests.get(
-            self._aoc_input_url.format(year = self.aoc_year, day = day),
-            cookies = self._aoc_cookie)
+            self._aoc_input_url.format(year=self.aoc_year, day=day),
+            cookies=self._aoc_cookie)
         return response.text
