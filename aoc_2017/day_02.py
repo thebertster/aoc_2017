@@ -1,7 +1,6 @@
 from itertools import combinations
 from aoclib import AOCLib
 
-
 puzzle = (2017, 2)
 
 # Initialise the helper library
@@ -33,7 +32,7 @@ checksum_2_1 = 0
 
 for row in spreadsheet:
     dividend = None
-    for col_1 in range(1, len(row)):        
+    for col_1 in range(1, len(row)):
         cell_1 = row[col_1-1]
         for cell_2 in row[col_1:]:
             if cell_1 > cell_2:
