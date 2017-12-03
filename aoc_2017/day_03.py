@@ -61,6 +61,29 @@ y = (1 - square_size)//2 + (y_diff if puzzle_input > top_left else x_diff)
 
 print('Puzzle Output 1#2: {}'.format(abs(x) + abs(y)))
 
+# Puzzle solution part 1 - without the symmetry thing or min()/max()!
+
+square_size = 2*(math.ceil(math.sqrt(puzzle_input))//2) + 1
+difference = square_size*square_size - puzzle_input
+
+if difference < square_size:
+    x_diff = -difference
+    y_diff = 0
+elif difference < 2*(square_size - 1):
+    x_diff = 1 - square_size
+    y_diff = difference - square_size + 1
+elif difference < 3*(square_size - 1):
+    x_diff = difference - 3*(square_size - 1)
+    y_diff = square_size - 1
+else:
+    x_diff = 0
+    y_diff = 4*(square_size - 1) - difference
+
+x = (square_size - 1)//2 + x_diff
+y = (1 - square_size)//2 + y_diff
+
+print('Puzzle Output 1#3: {}'.format(abs(x) + abs(y)))
+
 # Puzzle solution part 2:
 
 directions = ((1, 0), (0, 1), (-1, 0), (0, -1))
@@ -83,7 +106,6 @@ while number < puzzle_input:
                    for check_direction in surrounding])
 
     visited[position] = number
-
 
     step_count -= 1
     if step_count == 0:
