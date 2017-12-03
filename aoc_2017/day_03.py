@@ -1,3 +1,4 @@
+import math
 from aoclib import AOCLib
 
 puzzle = (2017, 3)
@@ -42,7 +43,23 @@ if number > puzzle_input:
     x -= (number-puzzle_input) * directions[d][0]
     y -= (number-puzzle_input) * directions[d][1]
 
-print('Puzzle Output 1: {}'.format(abs(x) + abs(y)))
+print('Puzzle Output 1#1: {}'.format(abs(x) + abs(y)))
+
+# Puzzle solution part 1 - no loops required!
+# Diagonal right & down are perfect squares
+# Find odd perfect square >= puzzle_input and count backwards
+# Use symmetry to our advantage!
+
+square_size = 2*(math.ceil(math.sqrt(puzzle_input))//2) + 1
+top_left = (square_size - 2)*square_size + 2
+difference = square_size*square_size - max(puzzle_input,
+                                           2*top_left - puzzle_input)
+x_diff = min(square_size - 1, difference)
+y_diff = max(0, difference - square_size + 1)
+x = (square_size - 1)//2 - (x_diff if puzzle_input > top_left else y_diff)
+y = (1 - square_size)//2 + (y_diff if puzzle_input > top_left else x_diff)
+
+print('Puzzle Output 1#2: {}'.format(abs(x) + abs(y)))
 
 # Puzzle solution part 2:
 
