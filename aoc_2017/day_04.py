@@ -28,9 +28,8 @@ print('Puzzle Output 1: {}'.format(validPassphrases))
 validPassphrases = 0
 
 for passphrase in puzzle_input:
-    words = [''.join(sorted(list(word)))
+    words = [''.join(sorted(word))
              for word in passphrase.split(' ')]
-    print(words)
     if len(words) == len(set(words)):
         validPassphrases += 1
 
