@@ -10,21 +10,40 @@ class AOCLib:
     def __init__(self, aoc_year):
         self.aoc_year = aoc_year
         user_profile = os.environ['USERPROFILE']
+        self.aoc_path = '{}\\aoc'.format(user_profile)
 
-        with open(user_profile + '\\aoc.cookie', 'r') as aoc_cookie_file:
+        with open('{}\\aoc.cookie'.format(self.aoc_path),
+                  'r') as aoc_cookie_file:
             aoc_cookie_value = aoc_cookie_file.read()
 
         self._aoc_cookie = dict(session=aoc_cookie_value)
 
     # Get the puzzle input from the AOC website and apply
     # an optional transform function to it before returning
+    # Cache the puzzle input locally for next time
 
     def get_puzzle_input(self, day, transform_function=lambda x: x):
-        response = requests.get(
-            self._aoc_input_url.format(year=self.aoc_year, day=day),
-            cookies=self._aoc_cookie)
+        cache_filename = '{}\\{}_{:02d}.txt'.format(self.aoc_path,
+                                                self.aoc_year, day)
 
-        puzzle_input = response.text.rstrip('\n')
+        try:
+            with open(cache_filename, 'r') as cache_file:
+                puzzle_input = cache_file.read()
+        except FileNotFoundError:
+            puzzle_input = None
+
+        if puzzle_input is None:
+            response = requests.get(
+                self._aoc_input_url.format(year=self.aoc_year, day=day),
+                cookies=self._aoc_cookie)
+
+            if response.status_code != 200:
+                raise AssertionError('Unable to obtain puzzle input!')
+
+            puzzle_input = response.text.rstrip('\n')
+
+            with open(cache_filename, 'w') as cache_file:
+                cache_file.write(puzzle_input)
 
         return transform_function(puzzle_input)
 

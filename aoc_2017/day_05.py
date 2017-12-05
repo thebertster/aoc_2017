@@ -27,12 +27,12 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list_int)
 
 # Puzzle solution part 1
 
-steps = process_jump_list(puzzle_input)
+puzzle_output = process_jump_list(puzzle_input)
 
-print('Puzzle Output 1: {}'.format(steps))
+print('Puzzle Output 1: {}'.format(puzzle_output))
 
 # Puzzle solution part 2
 
-steps = process_jump_list(puzzle_input, lambda x: x+1 if x<3 else x-1)
-    
-print('Puzzle Output 2: {}'.format(steps))
+puzzle_output = process_jump_list(puzzle_input, lambda x: x+1 if x < 3 else x-1)
+
+print('Puzzle Output 2: {}'.format(puzzle_output))
