@@ -14,23 +14,23 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list)
 
 # Puzzle solution part 1
 
-validPassphrases = 0
+valid_passphrases = 0
 
 for passphrase in puzzle_input:
     words = passphrase.split(' ')
     if len(words) == len(set(words)):
-        validPassphrases += 1
+        valid_passphrases += 1
 
-print('Puzzle Output 1: {}'.format(validPassphrases))
+print('Puzzle Output 1: {}'.format(valid_passphrases))
 
 # Puzzle solution part 2
 
-validPassphrases = 0
+valid_passphrases = 0
 
 for passphrase in puzzle_input:
     words = [''.join(sorted(word))
              for word in passphrase.split(' ')]
     if len(words) == len(set(words)):
-        validPassphrases += 1
+        valid_passphrases += 1
 
-print('Puzzle Output 2: {}'.format(validPassphrases))
+print('Puzzle Output 2: {}'.format(valid_passphrases))
