@@ -61,6 +61,8 @@ class AOCLib:
     def lines_to_list(puzzle_input):
         return puzzle_input.split('\n')
 
+    # Transform multi-line integer input to a list
+
     @staticmethod
     def lines_to_list_int(puzzle_input):
         return [int(x) for x in puzzle_input.split('\n')]
