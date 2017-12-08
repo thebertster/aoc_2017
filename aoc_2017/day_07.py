@@ -54,7 +54,7 @@ root_programs = [program_name
                  in program_table.items()
                  if program_data['supported_by'] is None]
 
-print("Part 1 Solution: {}".format(', '.join(root_programs)))
+print('Part 1 Solution: {}'.format(', '.join(root_programs)))
 
 # Puzzle solution part 2
 
@@ -108,5 +108,5 @@ while True:
     else:
         break
 
-print("Part 2 Solution: {} should weigh {}".
+print('Part 2 Solution: {} should weigh {}'.
       format(unbalanced_program, correct_weight))

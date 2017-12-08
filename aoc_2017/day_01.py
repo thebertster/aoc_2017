@@ -26,10 +26,10 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.sequence_to_int)
 
 # Puzzle solution part 1:
 
-print("Part 1 Solution: {}".
+print('Part 1 Solution: {}'.
       format(solve_puzzle(puzzle_input, 1)))
 
 # Puzzle solution part 2
 
-print("Part 2 Solution: {}".
+print('Part 2 Solution: {}'.
       format(solve_puzzle(puzzle_input, len(puzzle_input)//2)))
