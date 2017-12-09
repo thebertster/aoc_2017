@@ -13,6 +13,7 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list)
 # print(puzzle_input)
 
 # Puzzle solution parts 1 & 2
+# Rewritten not to use dirty eval()
 
 registers = {}
 python_condition = "registers['{0}'] {1} {2}"
@@ -26,11 +27,24 @@ for instruction in puzzle_input:
         if register_name not in registers:
             registers[register_name] = 0
 
-    if eval(python_condition.format(
-        parsed_instruction[4],
-        parsed_instruction[5],
-        parsed_instruction[6]
-        )):
+    cond_reg_val = registers[parsed_instruction[4]]
+    cond_num_val = int(parsed_instruction[6])
+    cond_oper = parsed_instruction[5]
+
+    if cond_oper == '<':
+        cond_matched = (cond_reg_val < cond_num_val)
+    elif cond_oper == '>':
+        cond_matched = (cond_reg_val > cond_num_val)
+    elif cond_oper == '<=':
+        cond_matched = (cond_reg_val <= cond_num_val)
+    elif cond_oper == '>=':
+        cond_matched = (cond_reg_val >= cond_num_val)
+    elif cond_oper == '==':
+        cond_matched = (cond_reg_val == cond_num_val)
+    else:
+        cond_matched = (cond_reg_val != cond_num_val)
+
+    if cond_matched:
         increment = int(parsed_instruction[2])
         if parsed_instruction[1] == 'dec':
             increment = -increment
