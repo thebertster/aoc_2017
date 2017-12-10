@@ -1,6 +1,15 @@
 from aoclib import AOCLib
 
 def solve_puzzle(circular_list, offset):
+    """Solves the puzzle based on a particular offset.
+
+    Args:
+        circular_list (list): The circular list to work with.
+        offset (int): The offset into the list to use.
+
+    Returns:
+        The solution.
+    """
     circle_size = len(circular_list)
 
     running_total = 0
