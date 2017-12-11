@@ -17,10 +17,28 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.to_list)
 
 # print(puzzle_input)
 
-# Tri-axis representation:
+# Tri-axis representation (sideways Q*Bert!):
 # x-axis = e->w
 # y-axis = se->nw
 # z-axis = ne->sw
+#             _____    y__  _____         _____
+#            /     \   |\  /     \       /     \
+#      _____/ -2,2,0\____\/ 0,1,-1\_____/ 2,0,-2\_____
+#     /     \       /     \       /     \       /     \
+#    / -3,2,1\_____/ -1,1,0\_____/ 1,0,-1\_____/3,-1,-2\
+#    \       /     \       /     \       /     \       /
+#     \_____/ -2,1,1\_____/ 0,0,0 \_____/2,-1,-1\_____/_____\x
+#     /     \       /     \       /     \       /     \     /
+#    / -3,1,2\_____/ -1,0,1\_____/ 1,-1,0\_____/3,-2,-1\
+#    \       /     \       /     \       /     \       /
+#     \_____/ -2,0,2\_____/ 0,-1,1\_____/ 2,-2,0\_____/
+#     /     \       /    /\       /     \       /     \
+#    / -3,0,3\_____/-1,-1,2\_____/ 1,-2,1\_____/ 3,-3,0\
+#    \       /     \       /     \       /     \       /
+#     \_____/       \/____/       \_____/       \_____/
+#                   /
+#                 |/__
+#                 z
 #
 # A step in any direction increases two of the co-ordinates by 1
 # therefore each step increases the absolute values of the sum
