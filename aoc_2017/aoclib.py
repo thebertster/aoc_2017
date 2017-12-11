@@ -71,29 +71,24 @@ class AOCLib:
     @staticmethod
     def to_list(puzzle_input):
         """Transform a comma-separated string to a list."""
-
         return [element.strip() for element in puzzle_input.split(',')]
 
     @staticmethod
     def to_list_int(puzzle_input):
         """Transform a comma-separated integers to a list."""
-
         return [int(element) for element in puzzle_input.split(',')]
 
     @staticmethod
     def lines_to_list(puzzle_input):
         """Transform multi-line input to a list."""
-
         return puzzle_input.split('\n')
 
     @staticmethod
     def lines_to_list_int(puzzle_input):
         """Transform multi-line integer input to a list."""
-
         return [int(x) for x in puzzle_input.split('\n')]
 
     @staticmethod
     def sequence_to_int(puzzle_input):
         """Transform a sequence of digits to a list of integers."""
-
         return [int(digit) for digit in puzzle_input]
