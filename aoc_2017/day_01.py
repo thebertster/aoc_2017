@@ -27,7 +27,6 @@ puzzle = (2017, 1)
 
 aoc = AOCLib(puzzle[0])
 
-
 # Get the puzzle input as a list of integers
 
 puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.sequence_to_int)
