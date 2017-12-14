@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fcf2cd3e-db37-4105-b47f-34fc8556e279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day_13.py</StartupFile>
+    <StartupFile>day_14.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="aoclib.py">
+    <Compile Include="lib\aoclib.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lib\circularlist.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day_01.py" />
@@ -61,6 +64,18 @@
     <Compile Include="day_13.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="day_14.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lib\knothash.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lib\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

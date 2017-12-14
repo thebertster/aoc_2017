@@ -1,4 +1,4 @@
-from aoclib import AOCLib
+from lib.aoclib import AOCLib
 
 def hex_distance(hex_point_1, hex_point_2=(0, 0, 0)):
     return (abs(hex_point_2[0] - hex_point_1[0])

@@ -1,4 +1,4 @@
-from aoclib import AOCLib
+from lib.aoclib import AOCLib
 
 def solve_puzzle(circular_list, offset):
     """Solves the puzzle based on a particular offset.
@@ -26,6 +26,7 @@ puzzle = (2017, 1)
 # Initialise the helper library
 
 aoc = AOCLib(puzzle[0])
+
 
 # Get the puzzle input as a list of integers
 

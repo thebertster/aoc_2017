@@ -1,5 +1,5 @@
 from itertools import combinations
-from aoclib import AOCLib
+from lib.aoclib import AOCLib
 
 puzzle = (2017, 2)
 

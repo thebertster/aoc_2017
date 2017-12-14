@@ -1,4 +1,4 @@
-from aoclib import AOCLib
+from lib.aoclib import AOCLib
 
 def process_jump_list(jump_list, offset_function=lambda x: x + 1):
     offset = 0
