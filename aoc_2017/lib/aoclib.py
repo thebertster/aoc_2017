@@ -1,4 +1,5 @@
 import os
+import pickle
 import requests
 
 class AOCLib:
@@ -65,6 +66,25 @@ class AOCLib:
                 cache_file.write(puzzle_input)
 
         return transform_function(puzzle_input)
+
+    def cache_some_data(self, day, key, obj):
+        """Store some data in a cache file for later"""
+        cache_filename = '{}\\cache_{}_{:02d}_{}.txt'.format(self._aoc_path,
+                                                self.aoc_year, day, key)
+        with open(cache_filename, 'wb') as cache_file:
+            pickle.dump(obj, file=cache_file)
+
+    def retrieve_some_data(self, day, key):
+        """Retrieve some data from a cache file"""
+        cache_filename = '{}\\cache_{}_{:02d}_{}.txt'.format(self._aoc_path,
+                                                self.aoc_year, day, key)
+        try:
+            with open(cache_filename, 'rb') as cache_file:
+                pickled_input = pickle.load(cache_file)
+        except FileNotFoundError:
+            pickled_input = None
+
+        return pickled_input
 
     # Various static methods for manipulating the puzzle input:
 
