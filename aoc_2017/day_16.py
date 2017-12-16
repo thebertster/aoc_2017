@@ -46,6 +46,25 @@ print('Part 1 Solution: {}'.format(''.join(programs)))
 
 # Puzzle solution part 2
 
+dances = 1000000000
+
+# Find a cycle in the output.
+
+cycle_length = 1
+
+while programs != start_programs:
+    programs = dance(programs, puzzle_input)
+    cycle_length += 1
+
+additional_dances = dances % cycle_length
+
+while additional_dances:
+    programs = dance(programs, puzzle_input)
+    additional_dances -= 1
+
+print('Part 2 Solution#1: {}'.format(''.join(programs)))
+
+# Puzzle solution part 2 (unnecessarily complicated)
 
 # Note that applying all moves N times is the same as
 # applying just the positional moves N times followed by
@@ -84,9 +103,6 @@ while len(positionals_done) < num_programs and len(swaps_done) < num_programs:
                 swaps_done.append(p)
             else:
                 swaps[p].append(r)
-
-dances = 1000000000
-
 programs = []
 
 for p in start_programs:
@@ -94,4 +110,4 @@ for p in start_programs:
     swap = swaps[positional][dances % len(swaps[positional])]
     programs.append(swap)
 
-print('Part 2 Solution: {}'.format(''.join(programs)))
+print('Part 2 Solution#2: {}'.format(''.join(programs)))
