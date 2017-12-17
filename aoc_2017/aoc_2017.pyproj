@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fcf2cd3e-db37-4105-b47f-34fc8556e279</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>day_16.py</StartupFile>
+    <StartupFile>day_17.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="day_16.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="day_24.py" />
+    <Compile Include="day_19.py" />
+    <Compile Include="day_20.py" />
+    <Compile Include="day_21.py" />
+    <Compile Include="day_22.py" />
+    <Compile Include="day_23.py" />
+    <Compile Include="day_18.py" />
+    <Compile Include="day_17.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="lib\aoclib.py">
