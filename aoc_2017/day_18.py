@@ -1,5 +1,24 @@
 from lib.aoclib import AOCLib
 
+class Registers(dict):
+    """Registers class.
+
+    Works like a dict with a default value of 0,
+    but only for keys that start with an alpha character.
+
+    Accessing a key that does not start with an alpha returns
+    an integer representation of the key.
+    """
+
+    def __getitem__(self, key):
+        if key[0].isalpha():
+            if key in self:
+                return super().__getitem__(key)
+            else:
+                return 0
+        
+        return int(key)
+
 def process_instruction(program_id,
                         instruction,
                         registers,
@@ -12,25 +31,21 @@ def process_instruction(program_id,
         registers (dict): The registers for this program.
         queues (list): The inter-process queues.
     """
-    instruction_value = lambda x: registers.get(x, 0) if x.isalpha() else int(x)
 
     pc_inc = 0
 
     if instruction[0] == 'snd':
-        queues[1 - program_id].append(instruction_value(instruction[1]))
+        queues[1 - program_id].append(registers[instruction[1]])
         if program_id == 1:
             registers['part2'] += 1
     elif instruction[0] == 'set':
-        registers[instruction[1]] = instruction_value(instruction[2])
+        registers[instruction[1]] = registers[instruction[2]]
     elif instruction[0] == 'add':
-        registers[instruction[1]] = (registers.get(instruction[1], 0)
-                                     + instruction_value(instruction[2]))
+        registers[instruction[1]] += registers[instruction[2]]
     elif instruction[0] == 'mul':
-        registers[instruction[1]] = (registers.get(instruction[1], 0)
-                                     * instruction_value(instruction[2]))
+        registers[instruction[1]] *= registers[instruction[2]]
     elif instruction[0] == 'mod':
-        registers[instruction[1]] = (registers.get(instruction[1], 0)
-                                     % instruction_value(instruction[2]))
+        registers[instruction[1]] %= registers[instruction[2]]
     elif instruction[0] == 'rcv':
         if queues[program_id]:
             registers[instruction[1]] = queues[program_id][0]
@@ -40,8 +55,8 @@ def process_instruction(program_id,
         else:
             pc_inc = -1
     elif instruction[0] == 'jgz':
-        if instruction_value(instruction[1]) > 0:
-            pc_inc = (instruction_value(instruction[2]) - 1)
+        if registers[instruction[1]] > 0:
+            pc_inc = (registers[instruction[2]] - 1)
 
     return pc_inc + 1
 
@@ -62,8 +77,8 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list)
 program_length = len(puzzle_input)
 program = [instruction.split(' ') for instruction in puzzle_input]
 
-registers_0 = {'p': 0}
-registers_1 = {'p': 1, 'part2': 0}
+registers_0 = Registers({'p': 0})
+registers_1 = Registers({'p': 1, 'part2': 0})
 program_queues = [[], []]
 pc = [0, 0]
 
