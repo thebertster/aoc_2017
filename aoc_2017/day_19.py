@@ -14,7 +14,7 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list)
 
 start_x = puzzle_input[0].index('|')
 
-directions = ((0, 1), (1, 0), (0, -1), (-1,0))
+directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
 
 direction = 0
 

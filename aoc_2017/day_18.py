@@ -14,9 +14,8 @@ class Registers(dict):
         if key[0].isalpha():
             if key in self:
                 return super().__getitem__(key)
-            else:
-                return 0
-        
+            return 0
+
         return int(key)
 
 def process_instruction(program_id,
