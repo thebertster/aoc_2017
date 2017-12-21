@@ -40,15 +40,15 @@ class AOCLib:
         """
 
         timer_now = timer()
-        print('\n{banner}\n{:10.3f} / {:10.3f}\n{banner}\n Part {:<3} : '
+        print('\n{banner}\n LAP -> {:<15.6f} | {:>15.6f} <- ELAPSED\n{banner}\n Part {:<3} : '
               .format(
                       timer_now - self._timer_last,
                       timer_now - self._timer_start,
                       part,
-                      banner='-' * 50),
+                      banner='-' * 80),
               end='')
         print(*args, **kwargs)
-        print('{}\n'.format('-' * 50))
+        print('{}\n'.format('-' * 80), flush = True)
 
         self._timer_last = timer_now
 

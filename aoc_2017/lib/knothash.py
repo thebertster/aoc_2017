@@ -29,9 +29,9 @@ class KnotHash:
         for i in range(rounds):
             for hash_element in hash_input:
                 if hash_element > 1:
-                    section = hash_list[current_position:current_position
-                                        + hash_element]
-                    section.reverse()
+                    section = hash_list[current_position + hash_element - 1:
+                                        current_position - 1:
+                                        -1]
                     hash_list.replace(current_position, section)
                 current_position = (current_position
                                     + hash_element

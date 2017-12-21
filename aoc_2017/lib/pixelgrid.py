@@ -89,9 +89,9 @@ class PixelGrid:
     @staticmethod
     def __flip_x(grid):
         """Flip a grid horizontally."""
-        return tuple([''.join(reversed(part)) for part in grid])
+        return tuple([''.join(part[::-1]) for part in grid])
 
     @staticmethod
     def __flip_y(grid):
         """Flip a grid vertically."""
-        return tuple(reversed(grid))
+        return tuple(grid[::-1])
