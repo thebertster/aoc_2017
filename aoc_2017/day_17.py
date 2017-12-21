@@ -25,8 +25,8 @@ while new_value <= spins:
     circular_buffer.insert(position, new_value)
     new_value += 1
 
-print('Puzzle Output 1: {}'.format(circular_buffer[(position + 1)
-                                                   % len(circular_buffer)]))
+aoc.print_solution(1, circular_buffer[(position + 1)
+                                      % len(circular_buffer)])
 
 # Puzzle solution part 2
 
@@ -38,4 +38,4 @@ while new_value <= spins:
         last_insert = new_value
     new_value += 1
 
-print('Puzzle Output 2: {}'.format(last_insert))
+aoc.print_solution(2, last_insert)

@@ -21,7 +21,7 @@ for passphrase in puzzle_input:
     if len(words) == len(set(words)):
         valid_passphrases += 1
 
-print('Puzzle Output 1: {}'.format(valid_passphrases))
+aoc.print_solution(1, valid_passphrases)
 
 # Puzzle solution part 2
 
@@ -33,4 +33,4 @@ for passphrase in puzzle_input:
     if len(words) == len(set(words)):
         valid_passphrases += 1
 
-print('Puzzle Output 2: {}'.format(valid_passphrases))
+aoc.print_solution(2, valid_passphrases)

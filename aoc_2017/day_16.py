@@ -42,7 +42,7 @@ start_programs = [chr(97 + c) for c in range(num_programs)]
 
 programs = dance(start_programs, puzzle_input)
 
-print('Part 1 Solution: {}'.format(''.join(programs)))
+aoc.print_solution(1, ''.join(programs))
 
 # Puzzle solution part 2
 
@@ -62,7 +62,7 @@ while additional_dances:
     programs = dance(programs, puzzle_input)
     additional_dances -= 1
 
-print('Part 2 Solution#1: {}'.format(''.join(programs)))
+aoc.print_solution('2#1', ''.join(programs))
 
 # Puzzle solution part 2 (unnecessarily complicated)
 
@@ -110,4 +110,4 @@ for p in start_programs:
     swap = swaps[positional][dances % len(swaps[positional])]
     programs.append(swap)
 
-print('Part 2 Solution#2: {}'.format(''.join(programs)))
+aoc.print_solution('2#2', ''.join(programs))

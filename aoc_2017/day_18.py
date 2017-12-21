@@ -96,5 +96,5 @@ while True:
         or (pc_inc_0 == pc_inc_1 == 0)):
         break
 
-print('Puzzle Output 2: {}'.format(registers_0['part1']))
-print('Puzzle Output 2: {}'.format(registers_1['part2']))
+aoc.print_solution(1, registers_0['part1'])
+aoc.print_solution(2, registers_1['part2'])

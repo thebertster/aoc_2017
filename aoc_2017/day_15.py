@@ -54,7 +54,7 @@ for a, b in zip(generate(number,
     if (a & 0xffff) == (b & 0xffff):
         judge_count += 1
 
-print('Part 1 Solution: {}'.format(judge_count))
+aoc.print_solution(1, judge_count)
 
 # Puzzle solution part 2
 
@@ -77,4 +77,4 @@ for a, b in zip(generate(number,
     if (a & 0xffff) == (b & 0xffff):
         judge_count += 1
 
-print('Part 2 Solution: {}'.format(judge_count))
+aoc.print_solution(2, judge_count)

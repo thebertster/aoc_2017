@@ -54,11 +54,10 @@ for instruction in puzzle_input:
         if registers[parsed_instruction[0]] > max_value:
             max_value = registers[parsed_instruction[0]]
 
-print('Part 1 Solution: {}'.format(
-    max([register_value
-         for register_value
-         in registers.values()])
-    ))
+aoc.print_solution(1, max([register_value
+                           for register_value
+                           in registers.values()])
+                   )
 
-print('Part 2 Solution: {}'.format(max_value))
+aoc.print_solution(2, max_value)
  

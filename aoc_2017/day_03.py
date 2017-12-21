@@ -43,7 +43,7 @@ if number > puzzle_input:
     x -= (number-puzzle_input) * directions[d][0]
     y -= (number-puzzle_input) * directions[d][1]
 
-print('Puzzle Output 1#1: {}'.format(abs(x) + abs(y)))
+aoc.print_solution('1#1', abs(x) + abs(y))
 
 # Puzzle solution part 1 - no loops required!
 # Diagonal right & down are perfect squares
@@ -59,7 +59,7 @@ y_diff = max(0, difference - square_size + 1)
 x = (square_size - 1)//2 - (x_diff if puzzle_input > top_left else y_diff)
 y = (1 - square_size)//2 + (y_diff if puzzle_input > top_left else x_diff)
 
-print('Puzzle Output 1#2: {}'.format(abs(x) + abs(y)))
+aoc.print_solution('1#2', abs(x) + abs(y))
 
 # Puzzle solution part 1 - without the symmetry thing or min()/max()!
 
@@ -82,7 +82,7 @@ else:
 x = (square_size - 1)//2 + x_diff
 y = (1 - square_size)//2 + y_diff
 
-print('Puzzle Output 1#3: {}'.format(abs(x) + abs(y)))
+aoc.print_solution('1#3', abs(x) + abs(y))
 
 # Puzzle solution part 2:
 
@@ -115,4 +115,4 @@ while number < puzzle_input:
             steps += 1
         step_count = steps
 
-print('Puzzle Output 2: {}'.format(number))
+aoc.print_solution(2, number)

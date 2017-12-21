@@ -14,8 +14,8 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1])
 
 # Puzzle solution part 1
 
-print('Puzzle Output 1: {}'.format('placeholder'))
+aoc.print_solution(1, 'placeholder')
 
 # Puzzle solution part 2
 
-print('Puzzle Output 2: {}'.format('placeholder'))
+aoc.print_solution(2, 'placeholder')

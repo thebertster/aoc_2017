@@ -51,5 +51,5 @@ for i, c in enumerate(puzzle_input):
                 score += nesting_level
             clean_stream += c
 
-print('Part 1 Solution: {}'.format(score))
-print('Part 2 Solution: {}'.format(garbage_count))
+aoc.print_solution(1, score)
+aoc.print_solution(2, garbage_count)

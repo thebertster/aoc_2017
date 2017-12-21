@@ -41,5 +41,5 @@ while True:
     if tuple(banks) in state_history:
         break
 
-print('Part 1 Solution: {}'.format(cycles))
-print('Part 2 Solution: {}'.format(cycles - state_history[tuple(banks)]))
+aoc.print_solution(1, cycles)
+aoc.print_solution(2, cycles - state_history[tuple(banks)])

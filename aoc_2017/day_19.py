@@ -12,6 +12,8 @@ puzzle_input = aoc.get_puzzle_input(puzzle[1], AOCLib.lines_to_list)
 
 # print(puzzle_input)
 
+# Puzzle solution parts 1 & 2
+
 start_x = puzzle_input[0].index('|')
 
 directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
@@ -46,10 +48,8 @@ while direction >= 0:
     x = sniff_x
     y = sniff_y
 
-# Puzzle solution part 1
-
-print('Puzzle Output 1: {}'.format(''.join(path)))
+aoc.print_solution(1, ''.join(path))
 
 # Puzzle solution part 2
 
-print('Puzzle Output 2: {}'.format(steps))
+aoc.print_solution(2, steps)

@@ -1,5 +1,6 @@
 import os
 import pickle
+from timeit import default_timer as timer
 import requests
 
 class AOCLib:
@@ -18,6 +19,9 @@ class AOCLib:
             aoc_year (int): The year of Advent of Code to work with.
         """
 
+        self._timer_start = timer()
+        self._timer_last = self._timer_start
+
         self.aoc_year = aoc_year
         user_profile = os.environ['USERPROFILE']
         self._aoc_path = '{}\\aoc'.format(user_profile)
@@ -27,6 +31,26 @@ class AOCLib:
             aoc_cookie_value = aoc_cookie_file.read()
 
         self._aoc_cookie = dict(session=aoc_cookie_value)
+
+    def print_solution(self, part, *args, **kwargs):
+        """Print the puzzle solution with timer.
+
+        Args:
+            part (int or string): The part of the puzzle.
+        """
+
+        timer_now = timer()
+        print('\n{banner}\n{:10.3f} / {:10.3f}\n{banner}\n Part {:<3} : '
+              .format(
+                      timer_now - self._timer_last,
+                      timer_now - self._timer_start,
+                      part,
+                      banner='-' * 50),
+              end='')
+        print(*args, **kwargs)
+        print('{}\n'.format('-' * 50))
+
+        self._timer_last = timer_now
 
     def get_puzzle_input(self, day, transform_function=lambda x: x):
         """Get puzzle input from the AOC website.

@@ -70,5 +70,5 @@ for step in puzzle_input:
     if steps_from_origin > max_steps_from_origin:
         max_steps_from_origin = steps_from_origin
 
-print('Part 1 Solution: {}'.format(steps_from_origin))
-print('Part 2 Solution: {}'.format(max_steps_from_origin))
+aoc.print_solution(1, steps_from_origin)
+aoc.print_solution(2, max_steps_from_origin)

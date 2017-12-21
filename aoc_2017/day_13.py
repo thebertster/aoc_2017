@@ -39,7 +39,7 @@ for layer in scanner_range:
     if (layer % scanner_range[layer]) == 0:
         penalty += layer * ((scanner_range[layer] + 2) // 2)
 
-print('Part 1 Solution: {}'.format(penalty))
+aoc.print_solution(1, penalty)
 
 # Puzzle solution part 2
 
@@ -58,4 +58,4 @@ while True:
     else:
         break
 
-print('Part 2 Solution: {}'.format(delay))
+aoc.print_solution(2, delay)

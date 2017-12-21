@@ -73,5 +73,5 @@ while ticks:
 
     ticks -= 1
 
-print('Puzzle Output 1: {}'.format(closest_to_origin))
-print('Puzzle Output 2: {}'.format(particle_c.count(False)))
+aoc.print_solution(1, closest_to_origin)
+aoc.print_solution(2, particle_c.count(False))

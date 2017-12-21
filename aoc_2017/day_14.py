@@ -46,7 +46,7 @@ if hash_outputs is None:
 used_block_count = sum([count_bits(row_hash)
                         for row_hash in hash_outputs])
 
-print('Part 1 Solution: {}'.format(used_block_count))
+aoc.print_solution(1, used_block_count)
 
 # Puzzle solution part 2
 
@@ -75,4 +75,4 @@ for start_position in range(num_rows * num_cols):
                                for neighbour in neighbours
                                if grid.get(neighbour, 0) == -1])
 
-print('Part 2 Solution: {}'.format(contiguous_area))
+aoc.print_solution(2, contiguous_area)

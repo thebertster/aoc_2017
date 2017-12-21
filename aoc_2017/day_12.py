@@ -48,5 +48,5 @@ for program_check in pipes:
 
         all_groups.extend(group)
 
-print('Part 1 Solution: {}'.format(len(groups[0])))
-print('Part 2 Solution: {}'.format(len(groups)))
+aoc.print_solution(1, len(groups[0]))
+aoc.print_solution(2, len(groups))
