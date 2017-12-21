@@ -20,15 +20,15 @@ class PixelGrid:
         for enhancement in enhancements:
             enhancement_split = enhancement.split(' => ')
             transformed = enhancement_split[1].split('/')
-            identity = enhancement_split[0]
+            identity = tuple(enhancement_split[0].split('/'))
 
-            rotate_clockwise = self.__rotate_clockwise(identity)
-            rotate_anticlockwise = self.__rotate_anticlockwise(identity)
             flip_x = self.__flip_x(identity)
             flip_y = self.__flip_y(identity)
+            flip_diag_1 = self.__flip_diag(identity)
             rotate_180 = self.__flip_y(flip_x)
-            flip_diag_1 = self.__flip_y(rotate_clockwise)
-            flip_diag_2 = self.__flip_y(rotate_anticlockwise)
+            rotate_anticlockwise = self.__flip_y(flip_diag_1)
+            rotate_clockwise = self.__flip_x(flip_diag_1)
+            flip_diag_2 = self.__flip_y(rotate_clockwise)
 
             for pattern in {identity,
                             rotate_clockwise,
@@ -38,7 +38,7 @@ class PixelGrid:
                             flip_y,
                             flip_diag_1,
                             flip_diag_2}:
-                self._enhancements[pattern] = transformed
+                self._enhancements[tuple(pattern)] = transformed
 
     def expand_grid(self):
         """Perform one pass of the pixel expansion algorithm."""
@@ -51,10 +51,9 @@ class PixelGrid:
 
         for sub_grid_y in range(0, len(self._state), square_size):
             for sub_grid_x in range(0, len(self._state), square_size):
-                sub_grid = '/'.join(
-                    [self._state[sub_grid_y + y]
-                     [sub_grid_x:sub_grid_x + square_size]
-                     for y in range(square_size)])
+                sub_grid = tuple([self._state[sub_grid_y + y]
+                            [sub_grid_x:sub_grid_x + square_size]
+                            for y in range(square_size)])
 
                 expanded = self._enhancements[sub_grid]
 
@@ -78,33 +77,21 @@ class PixelGrid:
         return '\n'.join(self._state)
 
     @staticmethod
-    def __rotate_clockwise(grid):
-        """Rotate a grid clockwise."""
-        original = grid.split('/')
-        transformed = []
-        for x in range(len(original)):
-            transformed.append([])
-            for y in range(len(original) - 1, -1, -1):
-                transformed[x].append(original[y][x])
-        return '/'.join([''.join(line) for line in transformed])
+    def __flip_diag(grid):
+        """Flip a grid along the diagonal."""
+        flipped_grid = [list(row) for row in grid]
+        for y, row in enumerate(grid):
+            for x in range(len(grid)):
+                flipped_grid[x][y] = row[x]
 
-    @staticmethod
-    def __rotate_anticlockwise(grid):
-        """Rotate a grid anti-clockwise."""
-        original = grid.split('/')
-        transformed = []
-        for x in range(len(original)):
-            transformed.append([])
-            for y, original_y in enumerate(original):
-                transformed[x].append(original_y[len(original) - x - 1])
-        return '/'.join([''.join(line) for line in transformed])
+        return tuple([''.join(line) for line in flipped_grid])
 
     @staticmethod
     def __flip_x(grid):
         """Flip a grid horizontally."""
-        return '/'.join([''.join(reversed(part)) for part in grid.split('/')])
+        return tuple([''.join(reversed(part)) for part in grid])
 
     @staticmethod
     def __flip_y(grid):
         """Flip a grid vertically."""
-        return '/'.join(reversed(grid.split('/')))
+        return tuple(reversed(grid))
