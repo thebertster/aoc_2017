@@ -14,9 +14,6 @@ class Registers(dict):
         Return register contents if key is alpha (default 0).
         Return key as value otherwise.
         """
-        if key[0].isalpha():
-            if key in self:
-                return super().__getitem__(key)
-            return 0
-
-        return int(key)
+        return (self.setdefault(key, 0)
+                if key[0].isalpha()
+                else int(key))

@@ -40,15 +40,18 @@ class AOCLib:
         """
 
         timer_now = timer()
-        print('\n{banner}\n LAP -> {:<15.6f} | {:>15.6f} <- ELAPSED\n{banner}\n Part {:<3} : '
+        print('\n{banner}'.format(banner='-' * 80))
+        print(' LAP -> {:<15.6f} | {:>15.6f} <- ELAPSED'
+              .format(timer_now - self._timer_last,
+                      timer_now - self._timer_start))
+
+        print('{banner}\n Part {:<3} : '
               .format(
-                      timer_now - self._timer_last,
-                      timer_now - self._timer_start,
-                      part,
-                      banner='-' * 80),
+                  part,
+                  banner='-' * 80),
               end='')
         print(*args, **kwargs)
-        print('{}\n'.format('-' * 80), flush = True)
+        print('{}\n'.format('-' * 80), flush=True)
 
         self._timer_last = timer_now
 
