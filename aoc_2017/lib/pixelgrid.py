@@ -52,8 +52,8 @@ class PixelGrid:
         for sub_grid_y in range(0, len(self._state), square_size):
             for sub_grid_x in range(0, len(self._state), square_size):
                 sub_grid = tuple([self._state[sub_grid_y + y]
-                            [sub_grid_x:sub_grid_x + square_size]
-                            for y in range(square_size)])
+                                  [sub_grid_x:sub_grid_x + square_size]
+                                  for y in range(square_size)])
 
                 expanded = self._enhancements[sub_grid]
 
