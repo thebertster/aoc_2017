@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<ProfilingTarget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ProjectTarget>
-    <TargetProject>fcf2cd3e-db37-4105-b47f-34fc8556e279</TargetProject>
-    <FriendlyName>aoc_2017</FriendlyName>
-  </ProjectTarget>
-</ProfilingTarget>
