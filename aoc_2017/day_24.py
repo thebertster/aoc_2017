@@ -21,7 +21,6 @@ bridges = [[('0', ), component]
            in components
            if '0' in component]
 
-complete_bridges = []
 strongest_bridge = 0
 strongest_longest_bridge = (0, 0)
 
@@ -43,7 +42,6 @@ while bridges:
             new_bridge.append(component)
             bridges.append(new_bridge)
     else:
-        complete_bridges.append(bridge)
         bridge_strength = sum([sum([int(port) for port in component])
                                for component in bridge])
         if bridge_strength > strongest_bridge:
